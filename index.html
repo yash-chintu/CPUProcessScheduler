@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="Home.css">
+    <title>Scheduling</title>
+</head>
+
+<body>
+    <h1 class="title is-1 has-text-centered mt-3"> CPU Process Scheduling</h1>
+    <section>
+        <div class="columns my-6 ">
+            <div class="column is-offset-1  is-3">
+                <div class="card  py-4 px-4 mr-4 ml-4">
+                    <h2 class="title is-2 has-text-centered">Input</h2>
+                    <label class="label" for="algo_type"> Select Algorithm</label>
+                    <div class="select">
+                        <select id="algo_type">
+                            <!-- <option value="#">Select </option> -->
+                            <option value="FCFS">FCFS</option>
+                            <option value="SJF">SJF</option>
+                            <option value="LJF">LJF</option>
+                            <option value="PS">Priority Scheduling</option>
+                            <option value="RR">Round Robin</option>
+
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="AT" class="label mt-2">Arrival Times</label>
+                        <input class="input" type="text" id="AT" placeholder="eg. 0 2 4 6 8">
+                    </div>
+
+                    <div class="field">
+                        <label for="BT" class="label">Burst Times</label>
+                        <input class="input" type="text" id="BT" placeholder="eg. 2 4 6 8 10">
+                    </div>
+
+                    <div class="field" id="Time_quantum">
+
+                    </div>
+
+                    <div class="field" id="Priorities">
+
+                    </div>
+
+                    <div class="control has-text-centered mt-5">
+                        <button class="button is-primary" id="solve">Solve</button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="column is-6 mx-4">
+                <div class="card px-4 py-4">
+                    <h2 class="title is-2">Output</h2>
+
+                    <div id="gantt_chart" class="has-text-centered table-container">
+                        <table class="table is-bordered" id="gant_table"></table>
+                    </div>
+                    <div class=" has-text-centered table-container">
+                        <table class="table is-bordered is-fullwidth" id="output_table"></table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="Home.js"></script>
+</body>
+
+</html>
