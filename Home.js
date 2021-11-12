@@ -291,7 +291,7 @@ function fcfs(at, bt) {
 
 
 function sjf(at, bt) {
-    var pq = new PriorityQueue(); // priority = BT , Element = AT -> 0 , BT -> 1 , PID -> 23
+    var pq = new PriorityQueue(); // priority = BT , Element = AT -> 0 , BT -> 1 , PID -> 2
 
 
 
@@ -338,7 +338,7 @@ function sjf(at, bt) {
             pq.dequeue();
         }
 
-        pq.enqueue([li[i].val[0], li[i].val[1], i + 1], bt[i]);
+        pq.enqueue([li[i].val[0], li[i].val[1], li[i].key], bt[i]);
         //console.log(at[i]);
     }
 
@@ -417,7 +417,7 @@ function ljf(at, bt) {
             pq.dequeue();
         }
 
-        pq.enqueue([li[i].val[0], li[i].val[1], i + 1], -bt[i]);
+        pq.enqueue([li[i].val[0], li[i].val[1], li[i].key], -bt[i]);
         //console.log(at[i]);
     }
 
@@ -496,7 +496,7 @@ function ps(at, bt, pt) {
             pq.dequeue();
         }
 
-        pq.enqueue([li[i].val[0], li[i].val[1], i + 1], li[i].val[2]);
+        pq.enqueue([li[i].val[0], li[i].val[1], li[i].key], li[i].val[2]);
         //console.log(at[i]);
     }
 
