@@ -329,7 +329,7 @@ function sjf(at, bt) {
     });
 
     //console.log(li);
-
+    
     for (var i = 0; i < at.length; i++) {
         if (pq.isEmpty()) {
             if (current_time < li[i].val[0]) {
@@ -340,8 +340,10 @@ function sjf(at, bt) {
         while (!(pq.isEmpty()) && current_time < li[i].val[0]) {
             var p = pq.front().element;
             //console.log(p);
+            console.log(p[0]);
             if (current_time < p[0]) {
                 current_time = p[0];
+                console.log(current_time);
                 gant.push([-1, current_time]);
             }
             current_time += p[1];
@@ -355,7 +357,7 @@ function sjf(at, bt) {
             pq.dequeue();
         }
 
-        pq.enqueue([li[i].val[0], li[i].val[1], li[i].key], bt[i]);
+        pq.enqueue([li[i].val[0], li[i].val[1], li[i].key], li[i].val[1]);
         //console.log(at[i]);
     }
 
@@ -363,7 +365,7 @@ function sjf(at, bt) {
         var p = pq.front().element;
         if (current_time < p[0]) {
             current_time = p[0];
-            gant.push(-1, current_time);
+            gant.push([-1, current_time]);
         }
         current_time += p[1];
         gant.push([p[2], current_time]);
@@ -434,7 +436,7 @@ function ljf(at, bt) {
             pq.dequeue();
         }
 
-        pq.enqueue([li[i].val[0], li[i].val[1], li[i].key], -bt[i]);
+        pq.enqueue([li[i].val[0], li[i].val[1], li[i].key], -li[i].val[1]);
         //console.log(at[i]);
     }
 
@@ -442,7 +444,7 @@ function ljf(at, bt) {
         var p = pq.front().element;
         if (current_time < p[0]) {
             current_time = p[0];
-            gant.push(-1, current_time);
+            gant.push([-1, current_time]);
         }
         current_time += p[1];
         gant.push([p[2], current_time]);
@@ -466,6 +468,7 @@ function ljf(at, bt) {
 
 
 function ps(at, bt, pt) {
+    //console.log(at, bt, pt);
     var pq = new PriorityQueue(); // priority = BT , Element = AT -> 0 , BT -> 1 , PID -> 23
 
 
@@ -521,7 +524,7 @@ function ps(at, bt, pt) {
         var p = pq.front().element;
         if (current_time < p[0]) {
             current_time = p[0];
-            gant.push(-1, current_time);
+            gant.push([-1, current_time]);
         }
         current_time += p[1];
         gant.push([p[2], current_time]);
@@ -613,6 +616,7 @@ function rr(at, bt, tq) {
 
 
 function creategant(gant) {
+    //console.log(gant);
     var gant_table = document.querySelector('#gant_table');
     var tr = document.createElement('TR');
     var tr2 = document.createElement('TR');
