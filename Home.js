@@ -88,18 +88,25 @@ function check(arr) {
 solve.addEventListener('click', () => {
 
     if (validateform()) {
-        const algo_type = document.querySelector('#algo_type');
-        const AT = document.querySelector('#AT');
-        const BT = document.querySelector('#BT');
-        const TQ = document.querySelector('#TQ');
-        const PT = document.querySelector('#PT');
+        var algo_type = document.querySelector('#algo_type');
+        var AT = document.querySelector('#AT');
+        var BT = document.querySelector('#BT');
+        var TQ = document.querySelector('#TQ');
+        var PT = document.querySelector('#PT');
+
+        AT.value = AT.value.trim();
+        BT.value = BT.value.trim();
 
         var at = AT.value.split(' ').map(Number);
         var bt = BT.value.split(' ').map(Number);
-        if (algo_type.value === "RR")
+        if (algo_type.value === "RR") {
+            TQ.value = TQ.value.trim();
             var tq = TQ.value.split(' ').map(Number);
-        if (algo_type.value === "PS")
+        }
+        if (algo_type.value === "PS") {
+            PT.value = PT.value.trim();
             var pt = PT.value.split(' ').map(Number);
+        }
 
 
         var valid = false;
@@ -156,18 +163,28 @@ solve.addEventListener('click', () => {
 
 
 function generateoutputs() {
-    const algo_type = document.querySelector('#algo_type');
-    const AT = document.querySelector('#AT');
-    const BT = document.querySelector('#BT');
-    const TQ = document.querySelector('#TQ');
-    const PT = document.querySelector('#PT');
+    var algo_type = document.querySelector('#algo_type');
+    var AT = document.querySelector('#AT');
+    var BT = document.querySelector('#BT');
+    var TQ = document.querySelector('#TQ');
+    var PT = document.querySelector('#PT');
+    AT.value = AT.value.trim();
+    BT.value = BT.value.trim();
+
+
 
     var at = AT.value.split(' ').map(Number);
     var bt = BT.value.split(' ').map(Number);
-    if (algo_type.value === "RR")
+    if (algo_type.value === "RR") {
+        TQ.value = TQ.value.trim();
         var tq = TQ.value.split(' ').map(Number);
-    if (algo_type.value === "PS")
+
+    }
+    if (algo_type.value === "PS") {
+        PT.value = PT.value.trim();
         var pt = PT.value.split(' ').map(Number);
+    }
+
 
     if (algo_type.value === "FCFS") {
         fcfs(at, bt);
