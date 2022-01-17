@@ -1,5 +1,5 @@
 # processScheduling
 
-## A complete frontend web page which shows you CPU process Scheduling
+A complete frontend web page which helps you in CPU process Scheduling
 
-## Click here
+## URL :-  [Click here](https://yash-chintu.github.io/processScheduling/)
